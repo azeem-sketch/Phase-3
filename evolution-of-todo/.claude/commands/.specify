@@ -1,0 +1,13 @@
+# .specify Command
+
+This command triggers the specification refinement process.
+
+## Usage
+`/.specify [Phase Number/Feature Name]`
+
+## Protocol
+1. Load `sp.constitution`.
+2. Analyze the current project state and existing specs.
+3. Generate or update the specification file in `specs/`.
+4. Ensure alignment with the Global Constitution.
+5. Provide a technical implementation plan and a set of atomic tasks.
