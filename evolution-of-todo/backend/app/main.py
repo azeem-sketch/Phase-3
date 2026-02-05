@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import time
 from app.config import CORS_ORIGINS
 from app.database import init_db
-from app.api import auth, todos
+from app.api import auth, tasks, chat
 print(f"DEBUG: CORS_ORIGINS configured as: {CORS_ORIGINS}")
 
 app = FastAPI(
@@ -15,19 +15,11 @@ app = FastAPI(
     version="2.0.0"
 )
 
-# Configure CORS
-@app.middleware("http")
-async def log_requests(request: Request, call_next):
-    start_time = time.time()
-    response = await call_next(request)
-    process_time = time.time() - start_time
-    print(f"DEBUG: {request.method} {request.url.path} - {response.status_code} ({process_time:.4f}s)")
-    return response
-
+# Outermost Middleware: CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:3000", "http://localhost:3000"],
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -35,6 +27,7 @@ app.add_middleware(
 # Register routers
 app.include_router(auth.router)
 app.include_router(tasks.router)
+app.include_router(chat.router, prefix="/api")
 
 @app.on_event("startup")
 def on_startup():
@@ -45,8 +38,8 @@ def on_startup():
 @app.get("/")
 def root():
     """Root endpoint."""
-    print("DEBUG: Root endpoint hit")
-    return {"message": "Evolution of Todo API - Phase II", "status": "running"}
+    print("DEBUG: Root endpoint hit - MARKER: 99999")
+    return {"message": "Evolution of Todo API - Phase II", "status": "running", "marker": "99999"}
 
 @app.get("/health")
 def health():

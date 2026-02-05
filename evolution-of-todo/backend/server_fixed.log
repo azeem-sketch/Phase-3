@@ -1,0 +1,103 @@
+Starting server with Python 3.12 (Standard Mode)...
+DEBUG: CORS_ORIGINS configured as: ['http://localhost:3000', 'http://127.0.0.1:3000']
+DEBUG: Application starting up and initializing DB
+2026-02-05 23:43:44,742 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:43:44,747 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-02-05 23:43:44,754 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:43:44,762 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("todos")
+2026-02-05 23:43:44,768 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:43:44,773 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("task")
+2026-02-05 23:43:44,779 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:43:44,784 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("conversation")
+2026-02-05 23:43:44,788 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:43:44,793 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("message")
+2026-02-05 23:43:44,797 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:43:44,801 INFO sqlalchemy.engine.Engine COMMIT
+DEBUG: init_db completed successfully
+INFO:     127.0.0.1:53385 - "GET /api/todos HTTP/1.1" 401 Unauthorized
+2026-02-05 23:44:27,361 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:44:27,457 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-02-05 23:44:27,479 INFO sqlalchemy.engine.Engine [generated in 0.02235s] (2,)
+2026-02-05 23:44:27,509 INFO sqlalchemy.engine.Engine SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.user_id = ?
+2026-02-05 23:44:27,545 INFO sqlalchemy.engine.Engine [generated in 0.03544s] (2,)
+INFO:     127.0.0.1:65508 - "GET /api/todos HTTP/1.1" 200 OK
+2026-02-05 23:44:27,569 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-02-05 23:44:28,801 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:44:28,804 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-02-05 23:44:28,811 INFO sqlalchemy.engine.Engine [cached since 1.354s ago] (2,)
+2026-02-05 23:44:28,818 INFO sqlalchemy.engine.Engine SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.user_id = ?
+2026-02-05 23:44:28,821 INFO sqlalchemy.engine.Engine [cached since 1.312s ago] (2,)
+INFO:     127.0.0.1:65508 - "GET /api/todos HTTP/1.1" 200 OK
+2026-02-05 23:44:28,834 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-02-05 23:44:51,579 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:44:51,585 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-02-05 23:44:51,592 INFO sqlalchemy.engine.Engine [generated in 0.00684s] ('azeemsaleem859@gmail.com',)
+INFO:     127.0.0.1:61018 - "POST /api/auth/signin HTTP/1.1" 200 OK
+2026-02-05 23:44:51,626 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-02-05 23:44:51,914 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:44:51,921 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-02-05 23:44:51,926 INFO sqlalchemy.engine.Engine [cached since 24.47s ago] (2,)
+2026-02-05 23:44:51,937 INFO sqlalchemy.engine.Engine SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.user_id = ?
+2026-02-05 23:44:51,941 INFO sqlalchemy.engine.Engine [cached since 24.43s ago] (2,)
+INFO:     127.0.0.1:54028 - "GET /api/todos HTTP/1.1" 200 OK
+2026-02-05 23:44:51,955 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-02-05 23:44:51,964 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:44:51,969 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-02-05 23:44:51,972 INFO sqlalchemy.engine.Engine [cached since 24.52s ago] (2,)
+2026-02-05 23:44:51,980 INFO sqlalchemy.engine.Engine SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.user_id = ?
+2026-02-05 23:44:51,985 INFO sqlalchemy.engine.Engine [cached since 24.48s ago] (2,)
+INFO:     127.0.0.1:54028 - "GET /api/todos HTTP/1.1" 200 OK
+2026-02-05 23:44:51,992 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-02-05 23:44:56,734 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:44:56,739 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-02-05 23:44:56,744 INFO sqlalchemy.engine.Engine [cached since 29.29s ago] (2,)
+2026-02-05 23:44:56,764 INFO sqlalchemy.engine.Engine INSERT INTO conversation (user_id, created_at, updated_at) VALUES (?, ?, ?)
+2026-02-05 23:44:56,768 INFO sqlalchemy.engine.Engine [generated in 0.00438s] ('2', '2026-02-05 18:44:56.752923', '2026-02-05 18:44:56.752923')
+2026-02-05 23:44:56,781 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:44:56,818 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:44:56,832 INFO sqlalchemy.engine.Engine SELECT conversation.id, conversation.user_id, conversation.created_at, conversation.updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:44:56,836 INFO sqlalchemy.engine.Engine [generated in 0.00422s] (23,)
+2026-02-05 23:44:56,850 INFO sqlalchemy.engine.Engine INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+2026-02-05 23:44:56,854 INFO sqlalchemy.engine.Engine [generated in 0.00560s] (23, '2', 'USER', 'HI', '2026-02-05 18:44:56.844467')
+2026-02-05 23:44:56,867 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:44:56,896 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:44:56,901 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:44:56,905 INFO sqlalchemy.engine.Engine [generated in 0.00384s] (23,)
+2026-02-05 23:44:56,913 INFO sqlalchemy.engine.Engine SELECT message.id, message.conversation_id, message.user_id, message.role, message.content, message.created_at 
+FROM message 
+WHERE message.conversation_id = ? ORDER BY message.created_at
+2026-02-05 23:44:56,917 INFO sqlalchemy.engine.Engine [generated in 0.00332s] (23,)
+2026-02-05 23:44:56,924 INFO sqlalchemy.engine.Engine INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+2026-02-05 23:44:56,927 INFO sqlalchemy.engine.Engine [cached since 0.07716s ago] (23, '2', 'ASSISTANT', "I'm sorry, but my OpenAI API key is not configured. Please add a valid `OPENAI_API_KEY` to the `backend/.env` file to enable the chat feature.", '2026-02-05 18:44:56.923451')
+2026-02-05 23:44:56,932 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:44:56,949 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:44:56,954 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:44:56,957 INFO sqlalchemy.engine.Engine [cached since 0.05556s ago] (23,)
+INFO:     127.0.0.1:54028 - "POST /api/2/chat HTTP/1.1" 200 OK
+2026-02-05 23:44:56,967 INFO sqlalchemy.engine.Engine ROLLBACK

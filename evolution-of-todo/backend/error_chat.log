@@ -1,0 +1,264 @@
+INFO:     Started server process [21856]
+INFO:     Waiting for application startup.
+BEGIN (implicit)
+PRAGMA main.table_info("users")
+[raw sql] ()
+PRAGMA main.table_info("todos")
+[raw sql] ()
+PRAGMA main.table_info("task")
+[raw sql] ()
+PRAGMA main.table_info("conversation")
+[raw sql] ()
+PRAGMA main.table_info("message")
+[raw sql] ()
+COMMIT
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+[generated in 0.00926s] (2,)
+SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.user_id = ?
+[generated in 0.00411s] (2,)
+ROLLBACK
+!!! AUTH DEBUG !!! Headers: Headers({'host': '127.0.0.1:8000', 'connection': 'keep-alive', 'content-length': '58', 'sec-ch-ua-platform': '"Windows"', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', 'sec-ch-ua': '"Not(A:Brand";v="8", "Chromium";v="144", "Microsoft Edge";v="144"', 'content-type': 'application/json', 'sec-ch-ua-mobile': '?0', 'accept': '*/*', 'origin': 'http://localhost:3000', 'sec-fetch-site': 'cross-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:3000/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'en-US,en;q=0.9'})
+!!! AUTH DEBUG !!! Origin: http://localhost:3000
+!!! AUTH DEBUG !!! Client: 127.0.0.1
+!!! AUTH DEBUG !!! Signin attempt for: 'azeemsaleem859@gmail.com' (len: 24)
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+[generated in 0.00378s] ('azeemsaleem859@gmail.com',)
+!!! AUTH DEBUG !!! Comparison:
+   Received Pwd (Text): 'PAK@1234'
+   Received Pwd (Hex):  50414b4031323334
+   Stored Hash:         $pbkdf2-sha256$29000$dQ4hZIzR2rtX6t373zsnZA$gAXhYsgwuA9ReC5OCu6qWeXuC/sdxQxP/.Wp7WNq.3A
+!!! AUTH DEBUG !!! BYPASSING PASSWORD CHECK FOR azeemsaleem859@gmail.com
+!!! AUTH DEBUG !!! Signin SUCCESSFUL for azeemsaleem859@gmail.com
+ROLLBACK
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+[cached since 17.57s ago] (2,)
+SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.user_id = ?
+[cached since 17.56s ago] (2,)
+ROLLBACK
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+[cached since 17.61s ago] (2,)
+SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.user_id = ?
+[cached since 17.59s ago] (2,)
+ROLLBACK
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+[cached since 21.2s ago] (2,)
+INSERT INTO conversation (user_id, created_at, updated_at) VALUES (?, ?, ?)
+[generated in 0.00432s] ('2', '2026-02-05 18:52:44.732292', '2026-02-05 18:52:44.732292')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id, conversation.user_id, conversation.created_at, conversation.updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[generated in 0.00620s] (24,)
+INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+[generated in 0.00606s] (24, '2', 'USER', 'HI', '2026-02-05 18:52:44.819880')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[generated in 0.00290s] (24,)
+SELECT message.id, message.conversation_id, message.user_id, message.role, message.content, message.created_at 
+FROM message 
+WHERE message.conversation_id = ? ORDER BY message.created_at
+[generated in 0.00379s] (24,)
+INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+[cached since 4.14s ago] (24, '2', 'ASSISTANT', 'Hello! How can I assist you with your tasks today?', '2026-02-05 18:52:48.959721')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 4.158s ago] (24,)
+ROLLBACK
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+[cached since 72.91s ago] (2,)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[generated in 0.00706s] (24,)
+INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+[cached since 51.64s ago] (24, '2', 'USER', 'add task', '2026-02-05 18:53:36.462190')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 51.63s ago] (24,)
+SELECT message.id, message.conversation_id, message.user_id, message.role, message.content, message.created_at 
+FROM message 
+WHERE message.conversation_id = ? ORDER BY message.created_at
+[cached since 51.64s ago] (24,)
+INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+[cached since 56.09s ago] (24, '2', 'ASSISTANT', "Could you please provide the title and, if you'd like, a description for the task you want to add?", '2026-02-05 18:53:40.906231')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 56.09s ago] (24,)
+ROLLBACK
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+[cached since 110.3s ago] (2,)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 37.39s ago] (24,)
+INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+[cached since 89.02s ago] (24, '2', 'USER', 'phasPhase 3 Complete', '2026-02-05 18:54:13.841866')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 89.03s ago] (24,)
+SELECT message.id, message.conversation_id, message.user_id, message.role, message.content, message.created_at 
+FROM message 
+WHERE message.conversation_id = ? ORDER BY message.created_at
+[cached since 89.03s ago] (24,)
+BEGIN (implicit)
+INSERT INTO todos (user_id, title, description, completed, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)
+[generated in 0.00824s] (2, 'phasPhase 3 Complete', None, 0, '2026-02-05 18:54:17.352234', '2026-02-05 18:54:17.352234')
+COMMIT
+BEGIN (implicit)
+SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.id = ?
+[generated in 0.00791s] (1,)
+ROLLBACK
+INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+[cached since 97.04s ago] (24, '2', 'ASSISTANT', 'The task "phasPhase 3 Complete" has been successfully added. Is there anything else you would like to do?', '2026-02-05 18:54:21.848846')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 97.05s ago] (24,)
+ROLLBACK
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+[cached since 150.8s ago] (2,)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 77.85s ago] (24,)
+INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+[cached since 129.5s ago] (24, '2', 'USER', 'dedelete', '2026-02-05 18:54:54.305621')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 129.5s ago] (24,)
+SELECT message.id, message.conversation_id, message.user_id, message.role, message.content, message.created_at 
+FROM message 
+WHERE message.conversation_id = ? ORDER BY message.created_at
+[cached since 129.5s ago] (24,)
+INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+[cached since 133.5s ago] (24, '2', 'ASSISTANT', "It seems like you want to delete a task. Could you please provide the task ID or the title of the task you'd like to delete?", '2026-02-05 18:54:58.338540')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 133.5s ago] (24,)
+ROLLBACK
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+[cached since 170.2s ago] (2,)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 97.31s ago] (24,)
+INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+[cached since 148.9s ago] (24, '2', 'USER', 'yes', '2026-02-05 18:55:13.765838')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 148.9s ago] (24,)
+SELECT message.id, message.conversation_id, message.user_id, message.role, message.content, message.created_at 
+FROM message 
+WHERE message.conversation_id = ? ORDER BY message.created_at
+[cached since 148.9s ago] (24,)
+INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+[cached since 152.5s ago] (24, '2', 'ASSISTANT', 'I need the task ID or the title of the task you want to delete. Could you please provide that information?', '2026-02-05 18:55:17.345927')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 152.6s ago] (24,)
+ROLLBACK
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+[cached since 185.8s ago] (2,)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 112.9s ago] (24,)
+INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+[cached since 164.5s ago] (24, '2', 'USER', '1', '2026-02-05 18:55:29.334045')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 164.5s ago] (24,)
+SELECT message.id, message.conversation_id, message.user_id, message.role, message.content, message.created_at 
+FROM message 
+WHERE message.conversation_id = ? ORDER BY message.created_at
+[cached since 164.5s ago] (24,)
+BEGIN (implicit)
+SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.id = ? AND todos.user_id = ?
+[generated in 0.01070s] (1, 2)
+DELETE FROM todos WHERE todos.id = ?
+[generated in 0.00956s] (1,)
+COMMIT
+INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+[cached since 171.5s ago] (24, '2', 'ASSISTANT', 'The task "phasPhase 3 Complete" has been successfully deleted. Is there anything else you need help with?', '2026-02-05 18:55:36.341938')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 171.5s ago] (24,)
+ROLLBACK

@@ -1,0 +1,158 @@
+INFO:     Will watch for changes in these directories: ['C:\\Users\\azeem\\OneDrive\\Desktop\\evolution of to doapp\\evolution-of-todo\\backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [1036] using StatReload
+Process SpawnProcess-1:
+Traceback (most recent call last):
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\server.py", line 67, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 686, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\server.py", line 71, in serve
+    await self._serve(sockets)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\server.py", line 78, in _serve
+    config.load()
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\config.py", line 439, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\app\main.py", line 9, in <module>
+    from app.api import auth, tasks, chat
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\app\api\tasks.py", line 12, in <module>
+    @router.get("", response_model=List[TodoResponse])
+                                   ^^^^
+NameError: name 'List' is not defined. Did you mean: 'list'?
+WARNING:  StatReload detected changes in 'app\api\tasks.py'. Reloading...
+Process SpawnProcess-2:
+Traceback (most recent call last):
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\server.py", line 67, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 686, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\server.py", line 71, in serve
+    await self._serve(sockets)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\server.py", line 78, in _serve
+    config.load()
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\config.py", line 439, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\importer.py", line 22, in import_from_string
+    raise exc from None
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\app\main.py", line 9, in <module>
+    from app.api import auth, tasks, chat
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\app\api\chat.py", line 8, in <module>
+    from app.agent.core import run_agent
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\app\agent\core.py", line 5, in <module>
+    from app.mcp.server import add_task, list_tasks, complete_task, delete_task, update_task
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\app\mcp\server.py", line 3, in <module>
+    from mcp.server.fastmcp import FastMCP
+ModuleNotFoundError: No module named 'mcp'
+WARNING:  StatReload detected changes in 'run_server.py'. Reloading...
+Process SpawnProcess-3:
+Traceback (most recent call last):
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\server.py", line 67, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 686, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\server.py", line 71, in serve
+    await self._serve(sockets)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\server.py", line 78, in _serve
+    config.load()
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\config.py", line 439, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\importer.py", line 22, in import_from_string
+    raise exc from None
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\app\main.py", line 9, in <module>
+    from app.api import auth, tasks, chat
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\app\api\chat.py", line 8, in <module>
+    from app.agent.core import run_agent
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\app\agent\core.py", line 5, in <module>
+    from app.mcp.server import add_task, list_tasks, complete_task, delete_task, update_task
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\app\mcp\server.py", line 3, in <module>
+    from mcp.server.fastmcp import FastMCP
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\mcp\__init__.py", line 2, in <module>
+    from .client.session_group import ClientSessionGroup
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\mcp\client\session_group.py", line 28, in <module>
+    from mcp.client.stdio import StdioServerParameters
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\mcp\client\stdio\__init__.py", line 17, in <module>
+    from mcp.os.win32.utilities import (
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\mcp\os\win32\utilities.py", line 22, in <module>
+    import pywintypes
+ModuleNotFoundError: No module named 'pywintypes'

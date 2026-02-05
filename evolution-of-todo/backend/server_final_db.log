@@ -1,0 +1,16 @@
+Starting server with Python 3.12 (Standard Mode)...
+DEBUG: CORS_ORIGINS configured as: ['http://localhost:3000', 'http://127.0.0.1:3000']
+DEBUG: Application starting up and initializing DB
+2026-02-05 23:24:25,023 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:24:25,029 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-02-05 23:24:25,035 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:24:25,043 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("todos")
+2026-02-05 23:24:25,049 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:24:25,056 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("task")
+2026-02-05 23:24:25,061 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:24:25,067 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("conversation")
+2026-02-05 23:24:25,071 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:24:25,084 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("message")
+2026-02-05 23:24:25,088 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:24:25,093 INFO sqlalchemy.engine.Engine COMMIT
+DEBUG: init_db completed successfully

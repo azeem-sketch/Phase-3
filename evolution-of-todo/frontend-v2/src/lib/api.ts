@@ -1,13 +1,12 @@
-import { authClient } from "./auth-client";
+import { useAuth } from "./auth-client";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
 
 export async function apiRequest(path: string, options: RequestInit = {}) {
-    const session = await authClient.getSession();
+    const { token } = useAuth.getState();
+    const fullUrl = `${API_URL}${path}`;
 
-    // Get the JWT from the session or client
-    const tokenResponse = await authClient.token();
-    const token = tokenResponse?.data?.token;
+    console.log(`[API] Request: ${options.method || 'GET'} ${fullUrl}`);
 
     const headers = new Headers(options.headers);
     if (token) {
@@ -15,16 +14,30 @@ export async function apiRequest(path: string, options: RequestInit = {}) {
     }
     headers.set("Content-Type", "application/json");
 
-    const response = await fetch(`${API_URL}${path}`, {
-        ...options,
-        headers,
-    });
+    try {
+        const response = await fetch(fullUrl, {
+            ...options,
+            headers,
+        });
 
-    if (!response.ok) {
-        const error = await response.json().catch(() => ({ message: "An error occurred" }));
-        throw new Error(error.message || response.statusText);
+        if (!response.ok) {
+            const errorText = await response.text();
+            let error;
+            try {
+                error = JSON.parse(errorText);
+            } catch {
+                error = { message: errorText || response.statusText };
+            }
+            console.error(`[API] Error response for ${fullUrl}:`, error);
+            console.error(`[API] Status: ${response.status} ${response.statusText}`);
+            throw new Error(error.message || response.statusText);
+        }
+
+        console.log(`[API] Success: ${fullUrl}`);
+        if (response.status === 204) return null;
+        return response.json();
+    } catch (error: any) {
+        console.error(`[API] FETCH FAILED for ${fullUrl}:`, error.message);
+        throw error;
     }
-
-    if (response.status === 204) return null;
-    return response.json();
 }

@@ -1,0 +1,292 @@
+INFO:     Started server process [21356]
+INFO:     Waiting for application startup.
+BEGIN (implicit)
+PRAGMA main.table_info("users")
+[raw sql] ()
+PRAGMA main.table_info("todos")
+[raw sql] ()
+PRAGMA main.table_info("task")
+[raw sql] ()
+PRAGMA main.table_info("conversation")
+[raw sql] ()
+PRAGMA main.table_info("message")
+[raw sql] ()
+COMMIT
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\applications.py", line 1138, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\routing.py", line 345, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\dependencies\utils.py", line 650, in solve_dependencies
+    solved = await run_in_threadpool(call, **solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\app\api\deps.py", line 41, in get_current_user
+    user = session.exec(statement).first()
+           ^^^^^^^^^^^^
+AttributeError: 'Session' object has no attribute 'exec'
+!!! AUTH DEBUG !!! Headers: Headers({'host': '127.0.0.1:8000', 'connection': 'keep-alive', 'content-length': '58', 'sec-ch-ua-platform': '"Windows"', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', 'sec-ch-ua': '"Not(A:Brand";v="8", "Chromium";v="144", "Microsoft Edge";v="144"', 'content-type': 'application/json', 'sec-ch-ua-mobile': '?0', 'accept': '*/*', 'origin': 'http://localhost:3000', 'sec-fetch-site': 'cross-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:3000/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'en-US,en;q=0.9'})
+!!! AUTH DEBUG !!! Origin: http://localhost:3000
+!!! AUTH DEBUG !!! Client: 127.0.0.1
+!!! AUTH DEBUG !!! Signin attempt for: 'azeemsaleem859@gmail.com' (len: 24)
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+[generated in 0.00715s] ('azeemsaleem859@gmail.com',)
+!!! AUTH DEBUG !!! Comparison:
+   Received Pwd (Text): 'PAK@1234'
+   Received Pwd (Hex):  50414b4031323334
+   Stored Hash:         $pbkdf2-sha256$29000$dQ4hZIzR2rtX6t373zsnZA$gAXhYsgwuA9ReC5OCu6qWeXuC/sdxQxP/.Wp7WNq.3A
+!!! AUTH DEBUG !!! BYPASSING PASSWORD CHECK FOR azeemsaleem859@gmail.com
+!!! AUTH DEBUG !!! Signin SUCCESSFUL for azeemsaleem859@gmail.com
+ROLLBACK
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\applications.py", line 1138, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\routing.py", line 345, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\dependencies\utils.py", line 650, in solve_dependencies
+    solved = await run_in_threadpool(call, **solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\app\api\deps.py", line 41, in get_current_user
+    user = session.exec(statement).first()
+           ^^^^^^^^^^^^
+AttributeError: 'Session' object has no attribute 'exec'
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\applications.py", line 1138, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\routing.py", line 345, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\dependencies\utils.py", line 650, in solve_dependencies
+    solved = await run_in_threadpool(call, **solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\app\api\deps.py", line 41, in get_current_user
+    user = session.exec(statement).first()
+           ^^^^^^^^^^^^
+AttributeError: 'Session' object has no attribute 'exec'
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\applications.py", line 1138, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\routing.py", line 345, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\fastapi\dependencies\utils.py", line 650, in solve_dependencies
+    solved = await run_in_threadpool(call, **solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\starlette\concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\azeem\OneDrive\Desktop\evolution of to doapp\evolution-of-todo\backend\app\api\deps.py", line 41, in get_current_user
+    user = session.execute(statement).scalars().first()
+           ^^^^^^^^^^^^
+AttributeError: 'Session' object has no attribute 'exec'

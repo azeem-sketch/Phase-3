@@ -1,0 +1,39 @@
+Starting server with Python 3.12 (Standard Mode)...
+DEBUG: CORS_ORIGINS configured as: ['http://localhost:3000', 'http://127.0.0.1:3000']
+DEBUG: Application starting up and initializing DB
+2026-02-05 23:28:45,750 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:28:45,757 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-02-05 23:28:45,763 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:28:45,771 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("todos")
+2026-02-05 23:28:45,778 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:28:45,784 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("task")
+2026-02-05 23:28:45,790 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:28:45,796 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("conversation")
+2026-02-05 23:28:45,802 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:28:45,810 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("message")
+2026-02-05 23:28:45,816 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:28:45,825 INFO sqlalchemy.engine.Engine COMMIT
+DEBUG: init_db completed successfully
+DEBUG: Root endpoint hit - MARKER: 99999
+INFO:     127.0.0.1:50226 - "GET / HTTP/1.1" 200 OK
+DEBUG: Root endpoint hit - MARKER: 99999
+INFO:     127.0.0.1:59614 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59614 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56286 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55491 - "OPTIONS /api/todos HTTP/1.1" 200 OK
+DEBUG: JWT Decode Error: Signature has expired.
+INFO:     127.0.0.1:55491 - "GET /api/todos HTTP/1.1" 401 Unauthorized
+DEBUG: JWT Decode Error: Signature has expired.
+INFO:     127.0.0.1:55491 - "GET /api/todos HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:62856 - "OPTIONS /api/auth/signin HTTP/1.1" 200 OK
+2026-02-05 23:39:07,822 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:39:07,885 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-02-05 23:39:07,891 INFO sqlalchemy.engine.Engine [generated in 0.00596s] ('azeemsaleem859@gmail.com',)
+INFO:     127.0.0.1:62856 - "POST /api/auth/signin HTTP/1.1" 200 OK
+2026-02-05 23:39:07,953 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:62856 - "GET /api/todos HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:49325 - "GET /api/todos HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:51057 - "OPTIONS /api/2/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51057 - "POST /api/2/chat HTTP/1.1" 500 Internal Server Error

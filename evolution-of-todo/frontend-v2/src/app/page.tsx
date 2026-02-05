@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useSession } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { apiRequest } from "@/lib/api";
+import ChatInterface from "@/components/ChatInterface";
 import { Todo } from "@/types/todo";
 import {
   Plus,
@@ -35,7 +36,7 @@ export default function Dashboard() {
   const fetchTodos = async () => {
     if (!session) return;
     try {
-      const data = await apiRequest(`/api/${session.user.id}/tasks`);
+      const data = await apiRequest(`/api/todos`);
       setTodos(data);
     } catch (err) {
       console.error("Failed to fetch todos", err);
@@ -45,10 +46,10 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
-    if (session) {
+    if (session?.user?.id) {
       fetchTodos();
     }
-  }, [session]);
+  }, [session?.user?.id]);
 
   const handleAddTodo = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,7 +57,7 @@ export default function Dashboard() {
 
     setLoading(true);
     try {
-      const newTodo = await apiRequest(`/api/${session.user.id}/tasks`, {
+      const newTodo = await apiRequest(`/api/todos`, {
         method: "POST",
         body: JSON.stringify({ title }),
       });
@@ -79,7 +80,7 @@ export default function Dashboard() {
     setTodos(updatedTodos);
 
     try {
-      await apiRequest(`/api/${session.user.id}/tasks/${todo.id}/complete`, {
+      await apiRequest(`/api/todos/${todo.id}/complete`, {
         method: "PATCH",
       });
     } catch (err) {
@@ -97,7 +98,7 @@ export default function Dashboard() {
     setTodos(todos.filter(t => t.id !== id));
 
     try {
-      await apiRequest(`/api/${session.user.id}/tasks/${id}`, {
+      await apiRequest(`/api/todos/${id}`, {
         method: "DELETE",
       });
     } catch (err) {
@@ -152,25 +153,12 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Add Todo Section */}
-      <div className="glass p-6 rounded-3xl shadow-xl animate-fade-in">
-        <form onSubmit={handleAddTodo} className="flex gap-4">
-          <input
-            className="input flex-1"
-            placeholder="What's your next evolution?"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            disabled={loading}
-          />
-          <button
-            type="submit"
-            disabled={loading || !title.trim()}
-            className="btn btn-primary flex items-center gap-2 px-6"
-          >
-            {loading ? <Loader2 className="animate-spin" size={20} /> : <Plus size={20} />}
-            <span className="hidden sm:inline">Add Task</span>
-          </button>
-        </form>
+      {/* Chat Interface */}
+      <div className="animate-fade-in">
+        <ChatInterface />
+        <p className="text-center text-xs text-text-muted mt-2">
+          Note: Use the chat to manage your tasks. The list below updates manually for now.
+        </p>
       </div>
 
       {/* Filters & Search - Placeholder for Premium look */}

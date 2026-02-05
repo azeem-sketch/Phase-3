@@ -1,0 +1,548 @@
+Starting server with Python 3.12 (Standard Mode)...
+DEBUG: CORS_ORIGINS configured as: ['http://localhost:3000', 'http://127.0.0.1:3000']
+DEBUG: Application starting up and initializing DB
+2026-02-05 23:51:44,227 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:51:44,233 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-02-05 23:51:44,239 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:51:44,246 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("todos")
+2026-02-05 23:51:44,252 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:51:44,259 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("task")
+2026-02-05 23:51:44,264 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:51:44,268 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("conversation")
+2026-02-05 23:51:44,272 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:51:44,277 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("message")
+2026-02-05 23:51:44,281 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-02-05 23:51:44,285 INFO sqlalchemy.engine.Engine COMMIT
+DEBUG: init_db completed successfully
+2026-02-05 23:52:23,457 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:52:23,526 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-02-05 23:52:23,534 INFO sqlalchemy.engine.Engine [generated in 0.00926s] (2,)
+2026-02-05 23:52:23,553 INFO sqlalchemy.engine.Engine SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.user_id = ?
+2026-02-05 23:52:23,556 INFO sqlalchemy.engine.Engine [generated in 0.00411s] (2,)
+INFO:     127.0.0.1:62636 - "GET /api/todos HTTP/1.1" 200 OK
+2026-02-05 23:52:23,576 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64167 - "OPTIONS /api/auth/signin HTTP/1.1" 200 OK
+2026-02-05 23:52:40,378 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:52:40,385 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-02-05 23:52:40,388 INFO sqlalchemy.engine.Engine [generated in 0.00378s] ('azeemsaleem859@gmail.com',)
+INFO:     127.0.0.1:64167 - "POST /api/auth/signin HTTP/1.1" 200 OK
+2026-02-05 23:52:40,431 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64328 - "OPTIONS /api/todos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50295 - "OPTIONS /api/todos HTTP/1.1" 200 OK
+2026-02-05 23:52:41,072 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:52:41,088 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-02-05 23:52:41,096 INFO sqlalchemy.engine.Engine [cached since 17.57s ago] (2,)
+2026-02-05 23:52:41,105 INFO sqlalchemy.engine.Engine SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.user_id = ?
+2026-02-05 23:52:41,109 INFO sqlalchemy.engine.Engine [cached since 17.56s ago] (2,)
+INFO:     127.0.0.1:64328 - "GET /api/todos HTTP/1.1" 200 OK
+2026-02-05 23:52:41,119 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-02-05 23:52:41,126 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:52:41,129 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-02-05 23:52:41,132 INFO sqlalchemy.engine.Engine [cached since 17.61s ago] (2,)
+2026-02-05 23:52:41,140 INFO sqlalchemy.engine.Engine SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.user_id = ?
+2026-02-05 23:52:41,142 INFO sqlalchemy.engine.Engine [cached since 17.59s ago] (2,)
+INFO:     127.0.0.1:64328 - "GET /api/todos HTTP/1.1" 200 OK
+2026-02-05 23:52:41,151 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-02-05 23:52:44,712 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:52:44,716 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-02-05 23:52:44,724 INFO sqlalchemy.engine.Engine [cached since 21.2s ago] (2,)
+2026-02-05 23:52:44,737 INFO sqlalchemy.engine.Engine INSERT INTO conversation (user_id, created_at, updated_at) VALUES (?, ?, ?)
+2026-02-05 23:52:44,741 INFO sqlalchemy.engine.Engine [generated in 0.00432s] ('2', '2026-02-05 18:52:44.732292', '2026-02-05 18:52:44.732292')
+2026-02-05 23:52:44,754 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:52:44,784 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:52:44,804 INFO sqlalchemy.engine.Engine SELECT conversation.id, conversation.user_id, conversation.created_at, conversation.updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:52:44,811 INFO sqlalchemy.engine.Engine [generated in 0.00620s] (24,)
+2026-02-05 23:52:44,828 INFO sqlalchemy.engine.Engine INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+2026-02-05 23:52:44,833 INFO sqlalchemy.engine.Engine [generated in 0.00606s] (24, '2', 'USER', 'HI', '2026-02-05 18:52:44.819880')
+2026-02-05 23:52:44,851 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:52:44,875 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:52:44,883 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:52:44,886 INFO sqlalchemy.engine.Engine [generated in 0.00290s] (24,)
+2026-02-05 23:52:44,893 INFO sqlalchemy.engine.Engine SELECT message.id, message.conversation_id, message.user_id, message.role, message.content, message.created_at 
+FROM message 
+WHERE message.conversation_id = ? ORDER BY message.created_at
+2026-02-05 23:52:44,897 INFO sqlalchemy.engine.Engine [generated in 0.00379s] (24,)
+DEBUG: Sending request to OpenRouter with model='openai/gpt-4o-mini', max_tokens=500
+DEBUG: OpenRouter Response: {
+  "id": "gen-1770317567-90lHUCj8nWjoFHwq4Gbz",
+  "provider": "OpenAI",
+  "model": "openai/gpt-4o-mini",
+  "object": "chat.completion",
+  "created": 1770317567,
+  "choices": [
+    {
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Hello! How can I assist you with your tasks today?",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "system_fingerprint": "fp_f4ae844694",
+  "usage": {
+    "prompt_tokens": 255,
+    "completion_tokens": 13,
+    "total_tokens": 268,
+    "cost": 4.605e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.605e-05,
+      "upstream_inference_prompt_cost": 3.825e-05,
+      "upstream_inference_completions_cost": 7.8e-06
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}
+2026-02-05 23:52:48,961 INFO sqlalchemy.engine.Engine INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+2026-02-05 23:52:48,967 INFO sqlalchemy.engine.Engine [cached since 4.14s ago] (24, '2', 'ASSISTANT', 'Hello! How can I assist you with your tasks today?', '2026-02-05 18:52:48.959721')
+2026-02-05 23:52:48,986 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:52:49,026 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:52:49,034 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:52:49,041 INFO sqlalchemy.engine.Engine [cached since 4.158s ago] (24,)
+INFO:     127.0.0.1:64328 - "POST /api/2/chat HTTP/1.1" 200 OK
+2026-02-05 23:52:49,057 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:59174 - "OPTIONS /api/2/chat HTTP/1.1" 200 OK
+2026-02-05 23:53:36,425 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:53:36,431 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-02-05 23:53:36,436 INFO sqlalchemy.engine.Engine [cached since 72.91s ago] (2,)
+2026-02-05 23:53:36,447 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:53:36,454 INFO sqlalchemy.engine.Engine [generated in 0.00706s] (24,)
+2026-02-05 23:53:36,463 INFO sqlalchemy.engine.Engine INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+2026-02-05 23:53:36,469 INFO sqlalchemy.engine.Engine [cached since 51.64s ago] (24, '2', 'USER', 'add task', '2026-02-05 18:53:36.462190')
+2026-02-05 23:53:36,481 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:53:36,506 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:53:36,512 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:53:36,517 INFO sqlalchemy.engine.Engine [cached since 51.63s ago] (24,)
+2026-02-05 23:53:36,526 INFO sqlalchemy.engine.Engine SELECT message.id, message.conversation_id, message.user_id, message.role, message.content, message.created_at 
+FROM message 
+WHERE message.conversation_id = ? ORDER BY message.created_at
+2026-02-05 23:53:36,531 INFO sqlalchemy.engine.Engine [cached since 51.64s ago] (24,)
+DEBUG: Sending request to OpenRouter with model='openai/gpt-4o-mini', max_tokens=500
+DEBUG: OpenRouter Response: {
+  "id": "gen-1770317619-ZjiSqzRl6xzvBXl1VmL1",
+  "provider": "OpenAI",
+  "model": "openai/gpt-4o-mini",
+  "object": "chat.completion",
+  "created": 1770317619,
+  "choices": [
+    {
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Could you please provide the title and, if you'd like, a description for the task you want to add?",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "system_fingerprint": "fp_f4ae844694",
+  "usage": {
+    "prompt_tokens": 277,
+    "completion_tokens": 23,
+    "total_tokens": 300,
+    "cost": 5.535e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.535e-05,
+      "upstream_inference_prompt_cost": 4.155e-05,
+      "upstream_inference_completions_cost": 1.38e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}
+2026-02-05 23:53:40,908 INFO sqlalchemy.engine.Engine INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+2026-02-05 23:53:40,914 INFO sqlalchemy.engine.Engine [cached since 56.09s ago] (24, '2', 'ASSISTANT', "Could you please provide the title and, if you'd like, a description for the task you want to add?", '2026-02-05 18:53:40.906231')
+2026-02-05 23:53:40,929 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:53:40,962 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:53:40,970 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:53:40,978 INFO sqlalchemy.engine.Engine [cached since 56.09s ago] (24,)
+INFO:     127.0.0.1:59174 - "POST /api/2/chat HTTP/1.1" 200 OK
+2026-02-05 23:53:40,996 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-02-05 23:54:13,775 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:54:13,802 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-02-05 23:54:13,807 INFO sqlalchemy.engine.Engine [cached since 110.3s ago] (2,)
+2026-02-05 23:54:13,829 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:54:13,834 INFO sqlalchemy.engine.Engine [cached since 37.39s ago] (24,)
+2026-02-05 23:54:13,844 INFO sqlalchemy.engine.Engine INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+2026-02-05 23:54:13,850 INFO sqlalchemy.engine.Engine [cached since 89.02s ago] (24, '2', 'USER', 'phasPhase 3 Complete', '2026-02-05 18:54:13.841866')
+2026-02-05 23:54:13,859 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:54:13,893 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:54:13,902 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:54:13,909 INFO sqlalchemy.engine.Engine [cached since 89.03s ago] (24,)
+2026-02-05 23:54:13,918 INFO sqlalchemy.engine.Engine SELECT message.id, message.conversation_id, message.user_id, message.role, message.content, message.created_at 
+FROM message 
+WHERE message.conversation_id = ? ORDER BY message.created_at
+2026-02-05 23:54:13,926 INFO sqlalchemy.engine.Engine [cached since 89.03s ago] (24,)
+DEBUG: Sending request to OpenRouter with model='openai/gpt-4o-mini', max_tokens=500
+DEBUG: OpenRouter Response: {
+  "id": "gen-1770317655-tvSf1hVuZou87muTK0HQ",
+  "provider": "OpenAI",
+  "model": "openai/gpt-4o-mini",
+  "object": "chat.completion",
+  "created": 1770317655,
+  "choices": [
+    {
+      "logprobs": null,
+      "finish_reason": "tool_calls",
+      "native_finish_reason": "tool_calls",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "refusal": null,
+        "reasoning": null,
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_poBAiHimtaqVUSroyr7T1xhT",
+            "function": {
+              "name": "add_task",
+              "arguments": "{\"user_id\":\"2\",\"title\":\"phasPhase 3 Complete\"}"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "system_fingerprint": "fp_f4ae844694",
+  "usage": {
+    "prompt_tokens": 312,
+    "completion_tokens": 23,
+    "total_tokens": 335,
+    "cost": 6.06e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 6.06e-05,
+      "upstream_inference_prompt_cost": 4.68e-05,
+      "upstream_inference_completions_cost": 1.38e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}
+2026-02-05 23:54:17,355 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:54:17,368 INFO sqlalchemy.engine.Engine INSERT INTO todos (user_id, title, description, completed, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)
+2026-02-05 23:54:17,376 INFO sqlalchemy.engine.Engine [generated in 0.00824s] (2, 'phasPhase 3 Complete', None, 0, '2026-02-05 18:54:17.352234', '2026-02-05 18:54:17.352234')
+2026-02-05 23:54:17,395 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:54:17,431 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:54:17,445 INFO sqlalchemy.engine.Engine SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.id = ?
+2026-02-05 23:54:17,453 INFO sqlalchemy.engine.Engine [generated in 0.00791s] (1,)
+2026-02-05 23:54:17,464 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-02-05 23:54:21,850 INFO sqlalchemy.engine.Engine INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+2026-02-05 23:54:21,867 INFO sqlalchemy.engine.Engine [cached since 97.04s ago] (24, '2', 'ASSISTANT', 'The task "phasPhase 3 Complete" has been successfully added. Is there anything else you would like to do?', '2026-02-05 18:54:21.848846')
+2026-02-05 23:54:21,883 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:54:21,917 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:54:21,925 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:54:21,934 INFO sqlalchemy.engine.Engine [cached since 97.05s ago] (24,)
+INFO:     127.0.0.1:50981 - "POST /api/2/chat HTTP/1.1" 200 OK
+2026-02-05 23:54:21,961 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-02-05 23:54:54,280 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:54:54,285 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-02-05 23:54:54,289 INFO sqlalchemy.engine.Engine [cached since 150.8s ago] (2,)
+2026-02-05 23:54:54,295 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:54:54,300 INFO sqlalchemy.engine.Engine [cached since 77.85s ago] (24,)
+2026-02-05 23:54:54,306 INFO sqlalchemy.engine.Engine INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+2026-02-05 23:54:54,309 INFO sqlalchemy.engine.Engine [cached since 129.5s ago] (24, '2', 'USER', 'dedelete', '2026-02-05 18:54:54.305621')
+2026-02-05 23:54:54,316 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:54:54,338 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:54:54,342 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:54:54,347 INFO sqlalchemy.engine.Engine [cached since 129.5s ago] (24,)
+2026-02-05 23:54:54,354 INFO sqlalchemy.engine.Engine SELECT message.id, message.conversation_id, message.user_id, message.role, message.content, message.created_at 
+FROM message 
+WHERE message.conversation_id = ? ORDER BY message.created_at
+2026-02-05 23:54:54,358 INFO sqlalchemy.engine.Engine [cached since 129.5s ago] (24,)
+DEBUG: Sending request to OpenRouter with model='openai/gpt-4o-mini', max_tokens=500
+DEBUG: OpenRouter Response: {
+  "id": "gen-1770317695-nonTZU38W3vQLBVzdMZw",
+  "provider": "OpenAI",
+  "model": "openai/gpt-4o-mini",
+  "object": "chat.completion",
+  "created": 1770317695,
+  "choices": [
+    {
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "It seems like you want to delete a task. Could you please provide the task ID or the title of the task you'd like to delete?",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "system_fingerprint": "fp_f4ae844694",
+  "usage": {
+    "prompt_tokens": 347,
+    "completion_tokens": 29,
+    "total_tokens": 376,
+    "cost": 6.945e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 6.945e-05,
+      "upstream_inference_prompt_cost": 5.205e-05,
+      "upstream_inference_completions_cost": 1.74e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}
+2026-02-05 23:54:58,339 INFO sqlalchemy.engine.Engine INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+2026-02-05 23:54:58,348 INFO sqlalchemy.engine.Engine [cached since 133.5s ago] (24, '2', 'ASSISTANT', "It seems like you want to delete a task. Could you please provide the task ID or the title of the task you'd like to delete?", '2026-02-05 18:54:58.338540')
+2026-02-05 23:54:58,364 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:54:58,400 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:54:58,409 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:54:58,416 INFO sqlalchemy.engine.Engine [cached since 133.5s ago] (24,)
+INFO:     127.0.0.1:53821 - "POST /api/2/chat HTTP/1.1" 200 OK
+2026-02-05 23:54:58,438 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-02-05 23:55:13,735 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:55:13,741 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-02-05 23:55:13,746 INFO sqlalchemy.engine.Engine [cached since 170.2s ago] (2,)
+2026-02-05 23:55:13,755 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:55:13,761 INFO sqlalchemy.engine.Engine [cached since 97.31s ago] (24,)
+2026-02-05 23:55:13,766 INFO sqlalchemy.engine.Engine INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+2026-02-05 23:55:13,772 INFO sqlalchemy.engine.Engine [cached since 148.9s ago] (24, '2', 'USER', 'yes', '2026-02-05 18:55:13.765838')
+2026-02-05 23:55:13,781 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:55:13,802 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:55:13,808 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:55:13,814 INFO sqlalchemy.engine.Engine [cached since 148.9s ago] (24,)
+2026-02-05 23:55:13,821 INFO sqlalchemy.engine.Engine SELECT message.id, message.conversation_id, message.user_id, message.role, message.content, message.created_at 
+FROM message 
+WHERE message.conversation_id = ? ORDER BY message.created_at
+2026-02-05 23:55:13,825 INFO sqlalchemy.engine.Engine [cached since 148.9s ago] (24,)
+DEBUG: Sending request to OpenRouter with model='openai/gpt-4o-mini', max_tokens=500
+DEBUG: OpenRouter Response: {
+  "id": "gen-1770317715-CXU4cAYAMdtFqUROJEeg",
+  "provider": "OpenAI",
+  "model": "openai/gpt-4o-mini",
+  "object": "chat.completion",
+  "created": 1770317715,
+  "choices": [
+    {
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "I need the task ID or the title of the task you want to delete. Could you please provide that information?",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "system_fingerprint": "fp_f4ae844694",
+  "usage": {
+    "prompt_tokens": 384,
+    "completion_tokens": 24,
+    "total_tokens": 408,
+    "cost": 7.2e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.2e-05,
+      "upstream_inference_prompt_cost": 5.76e-05,
+      "upstream_inference_completions_cost": 1.44e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}
+2026-02-05 23:55:17,348 INFO sqlalchemy.engine.Engine INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+2026-02-05 23:55:17,357 INFO sqlalchemy.engine.Engine [cached since 152.5s ago] (24, '2', 'ASSISTANT', 'I need the task ID or the title of the task you want to delete. Could you please provide that information?', '2026-02-05 18:55:17.345927')
+2026-02-05 23:55:17,376 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:55:17,412 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:55:17,431 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:55:17,440 INFO sqlalchemy.engine.Engine [cached since 152.6s ago] (24,)
+INFO:     127.0.0.1:60608 - "POST /api/2/chat HTTP/1.1" 200 OK
+2026-02-05 23:55:17,464 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-02-05 23:55:29,305 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:55:29,309 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-02-05 23:55:29,315 INFO sqlalchemy.engine.Engine [cached since 185.8s ago] (2,)
+2026-02-05 23:55:29,323 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:55:29,327 INFO sqlalchemy.engine.Engine [cached since 112.9s ago] (24,)
+2026-02-05 23:55:29,335 INFO sqlalchemy.engine.Engine INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+2026-02-05 23:55:29,340 INFO sqlalchemy.engine.Engine [cached since 164.5s ago] (24, '2', 'USER', '1', '2026-02-05 18:55:29.334045')
+2026-02-05 23:55:29,349 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:55:29,369 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:55:29,375 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:55:29,380 INFO sqlalchemy.engine.Engine [cached since 164.5s ago] (24,)
+2026-02-05 23:55:29,387 INFO sqlalchemy.engine.Engine SELECT message.id, message.conversation_id, message.user_id, message.role, message.content, message.created_at 
+FROM message 
+WHERE message.conversation_id = ? ORDER BY message.created_at
+2026-02-05 23:55:29,392 INFO sqlalchemy.engine.Engine [cached since 164.5s ago] (24,)
+DEBUG: Sending request to OpenRouter with model='openai/gpt-4o-mini', max_tokens=500
+DEBUG: OpenRouter Response: {
+  "id": "gen-1770317731-CADYfWQMXNv35QATo1R1",
+  "provider": "OpenAI",
+  "model": "openai/gpt-4o-mini",
+  "object": "chat.completion",
+  "created": 1770317731,
+  "choices": [
+    {
+      "logprobs": null,
+      "finish_reason": "tool_calls",
+      "native_finish_reason": "tool_calls",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "refusal": null,
+        "reasoning": null,
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_RuHPUFMwThmCWZRMfpRFN7z5",
+            "function": {
+              "name": "delete_task",
+              "arguments": "{\"user_id\":\"2\",\"task_id\":1}"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "system_fingerprint": "fp_f4ae844694",
+  "usage": {
+    "prompt_tokens": 416,
+    "completion_tokens": 20,
+    "total_tokens": 436,
+    "cost": 7.44e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.44e-05,
+      "upstream_inference_prompt_cost": 6.24e-05,
+      "upstream_inference_completions_cost": 1.2e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}
+2026-02-05 23:55:32,893 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:55:32,908 INFO sqlalchemy.engine.Engine SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.id = ? AND todos.user_id = ?
+2026-02-05 23:55:32,918 INFO sqlalchemy.engine.Engine [generated in 0.01070s] (1, 2)
+2026-02-05 23:55:32,940 INFO sqlalchemy.engine.Engine DELETE FROM todos WHERE todos.id = ?
+2026-02-05 23:55:32,949 INFO sqlalchemy.engine.Engine [generated in 0.00956s] (1,)
+2026-02-05 23:55:32,965 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:55:36,345 INFO sqlalchemy.engine.Engine INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+2026-02-05 23:55:36,353 INFO sqlalchemy.engine.Engine [cached since 171.5s ago] (24, '2', 'ASSISTANT', 'The task "phasPhase 3 Complete" has been successfully deleted. Is there anything else you need help with?', '2026-02-05 18:55:36.341938')
+2026-02-05 23:55:36,370 INFO sqlalchemy.engine.Engine COMMIT
+2026-02-05 23:55:36,404 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-02-05 23:55:36,414 INFO sqlalchemy.engine.Engine SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+2026-02-05 23:55:36,423 INFO sqlalchemy.engine.Engine [cached since 171.5s ago] (24,)
+INFO:     127.0.0.1:57955 - "POST /api/2/chat HTTP/1.1" 200 OK
+2026-02-05 23:55:36,447 INFO sqlalchemy.engine.Engine ROLLBACK

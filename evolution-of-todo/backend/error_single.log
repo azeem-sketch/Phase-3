@@ -1,0 +1,18 @@
+INFO:     Started server process [3476]
+INFO:     Waiting for application startup.
+BEGIN (implicit)
+PRAGMA main.table_info("users")
+[raw sql] ()
+PRAGMA main.table_info("todos")
+[raw sql] ()
+PRAGMA main.table_info("task")
+[raw sql] ()
+PRAGMA main.table_info("conversation")
+[raw sql] ()
+PRAGMA main.table_info("message")
+[raw sql] ()
+COMMIT
+INFO:     Application startup complete.
+ERROR:    [Errno 10048] error while attempting to bind on address ('127.0.0.1', 8000): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.

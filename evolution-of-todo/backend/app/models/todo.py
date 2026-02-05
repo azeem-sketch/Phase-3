@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Optional
 from sqlmodel import SQLModel, Field, Relationship
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, Mapped
 
 class Todo(SQLModel, table=True):
     """Todo model for task management."""
@@ -17,7 +17,5 @@ class Todo(SQLModel, table=True):
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
     
-    # Relationship to user - using explicit SQLAlchemy relationship for Python 3.14 compatibility
-    user: "User" = Relationship(
-        sa_relationship=relationship("User", back_populates="todos")
-    )
+    # Relationship to user (Commented out for 3.14 compat)
+    # user: Mapped["User"] = Relationship(back_populates="todos")

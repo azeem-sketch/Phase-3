@@ -1,0 +1,106 @@
+INFO:     Started server process [20168]
+INFO:     Waiting for application startup.
+BEGIN (implicit)
+PRAGMA main.table_info("users")
+[raw sql] ()
+PRAGMA main.table_info("todos")
+[raw sql] ()
+PRAGMA main.table_info("task")
+[raw sql] ()
+PRAGMA main.table_info("conversation")
+[raw sql] ()
+PRAGMA main.table_info("message")
+[raw sql] ()
+COMMIT
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+[generated in 0.02235s] (2,)
+SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.user_id = ?
+[generated in 0.03544s] (2,)
+ROLLBACK
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+[cached since 1.354s ago] (2,)
+SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.user_id = ?
+[cached since 1.312s ago] (2,)
+ROLLBACK
+!!! AUTH DEBUG !!! Headers: Headers({'host': '127.0.0.1:8000', 'connection': 'keep-alive', 'content-length': '58', 'sec-ch-ua-platform': '"Windows"', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', 'sec-ch-ua': '"Not(A:Brand";v="8", "Chromium";v="144", "Microsoft Edge";v="144"', 'content-type': 'application/json', 'sec-ch-ua-mobile': '?0', 'accept': '*/*', 'origin': 'http://localhost:3000', 'sec-fetch-site': 'cross-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:3000/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'en-US,en;q=0.9'})
+!!! AUTH DEBUG !!! Origin: http://localhost:3000
+!!! AUTH DEBUG !!! Client: 127.0.0.1
+!!! AUTH DEBUG !!! Signin attempt for: 'azeemsaleem859@gmail.com' (len: 24)
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+[generated in 0.00684s] ('azeemsaleem859@gmail.com',)
+!!! AUTH DEBUG !!! Comparison:
+   Received Pwd (Text): 'PAK@1234'
+   Received Pwd (Hex):  50414b4031323334
+   Stored Hash:         $pbkdf2-sha256$29000$dQ4hZIzR2rtX6t373zsnZA$gAXhYsgwuA9ReC5OCu6qWeXuC/sdxQxP/.Wp7WNq.3A
+!!! AUTH DEBUG !!! BYPASSING PASSWORD CHECK FOR azeemsaleem859@gmail.com
+!!! AUTH DEBUG !!! Signin SUCCESSFUL for azeemsaleem859@gmail.com
+ROLLBACK
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+[cached since 24.47s ago] (2,)
+SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.user_id = ?
+[cached since 24.43s ago] (2,)
+ROLLBACK
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+[cached since 24.52s ago] (2,)
+SELECT todos.id, todos.user_id, todos.title, todos.description, todos.completed, todos.created_at, todos.updated_at 
+FROM todos 
+WHERE todos.user_id = ?
+[cached since 24.48s ago] (2,)
+ROLLBACK
+BEGIN (implicit)
+SELECT users.id, users.email, users.password_hash, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+[cached since 29.29s ago] (2,)
+INSERT INTO conversation (user_id, created_at, updated_at) VALUES (?, ?, ?)
+[generated in 0.00438s] ('2', '2026-02-05 18:44:56.752923', '2026-02-05 18:44:56.752923')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id, conversation.user_id, conversation.created_at, conversation.updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[generated in 0.00422s] (23,)
+INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+[generated in 0.00560s] (23, '2', 'USER', 'HI', '2026-02-05 18:44:56.844467')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[generated in 0.00384s] (23,)
+SELECT message.id, message.conversation_id, message.user_id, message.role, message.content, message.created_at 
+FROM message 
+WHERE message.conversation_id = ? ORDER BY message.created_at
+[generated in 0.00332s] (23,)
+INSERT INTO message (conversation_id, user_id, role, content, created_at) VALUES (?, ?, ?, ?, ?)
+[cached since 0.07716s ago] (23, '2', 'ASSISTANT', "I'm sorry, but my OpenAI API key is not configured. Please add a valid `OPENAI_API_KEY` to the `backend/.env` file to enable the chat feature.", '2026-02-05 18:44:56.923451')
+COMMIT
+BEGIN (implicit)
+SELECT conversation.id AS conversation_id, conversation.user_id AS conversation_user_id, conversation.created_at AS conversation_created_at, conversation.updated_at AS conversation_updated_at 
+FROM conversation 
+WHERE conversation.id = ?
+[cached since 0.05556s ago] (23,)
+ROLLBACK

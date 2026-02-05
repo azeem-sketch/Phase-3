@@ -19,18 +19,8 @@ export default function SignupPage() {
         setError("");
 
         try {
-            await signUp.email({
-                email,
-                password,
-                name: email.split('@')[0], // better-auth usually requires a name
-            }, {
-                onSuccess: () => {
-                    router.push("/signin?signedup=true");
-                },
-                onError: (ctx) => {
-                    setError(ctx.error.message || "Failed to create account");
-                }
-            });
+            await signUp(email, password);
+            router.push("/signin?signedup=true");
         } catch (err: any) {
             setError(err.message || "Something went wrong");
         } finally {
@@ -40,7 +30,7 @@ export default function SignupPage() {
 
     return (
         <div className="min-h-[80vh] flex items-center justify-center p-6 bg-[radial-gradient(circle_at_top_right,_var(--primary)_0%,_transparent_25%),radial-gradient(circle_at_bottom_left,_var(--primary)_0%,_transparent_25%)]">
-            <div className="glass w-full max-max-w-[400px] p-8 rounded-2xl shadow-2xl animate-fade-in">
+            <div className="glass w-full max-w-[400px] p-8 rounded-2xl shadow-2xl animate-fade-in">
                 <div className="flex justify-center mb-6 text-primary">
                     <div className="p-3 bg-primary/10 rounded-xl">
                         <UserPlus size={32} />

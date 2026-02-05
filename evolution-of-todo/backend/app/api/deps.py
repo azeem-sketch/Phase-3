@@ -38,7 +38,7 @@ def get_current_user(
         user_id = int(user_id)
         
     statement = select(User).where(User.id == user_id)
-    user = session.exec(statement).first()
+    user = session.execute(statement).scalars().first()
     
     # If user doesn't exist in our DB but authenticated via Better Auth, 
     # we might need to "jit" create them or just error.
@@ -47,7 +47,7 @@ def get_current_user(
          # Try looking up by email if available in payload
          email = payload.get("email")
          if email:
-             user = session.exec(select(User).where(User.email == email)).first()
+             user = session.execute(select(User).where(User.email == email)).scalars().first()
     
     if not user:
         raise AuthenticationError("User not found in system")

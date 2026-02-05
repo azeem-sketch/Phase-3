@@ -21,20 +21,12 @@ function SigninForm() {
         setError("");
 
         try {
-            await signIn.email({
-                email,
-                password,
-            }, {
-                onSuccess: () => {
-                    router.push("/");
-                    router.refresh();
-                },
-                onError: (ctx) => {
-                    setError(ctx.error.message || "Invalid email or password");
-                }
-            });
+            await signIn(email, password);
+            router.push("/");
+            router.refresh();
         } catch (err: any) {
-            setError(err.message || "Something went wrong");
+            console.error("Login Error:", err);
+            setError(err.message || JSON.stringify(err) || "Invalid email or password");
         } finally {
             setLoading(false);
         }

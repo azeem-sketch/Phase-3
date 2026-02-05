@@ -1,0 +1,38 @@
+INFO:     Will watch for changes in these directories: ['C:\\Users\\azeem\\OneDrive\\Desktop\\evolution of to doapp\\evolution-of-todo\\backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [20396] using StatReload
+INFO:     Started server process [4488]
+INFO:     Waiting for application startup.
+BEGIN (implicit)
+PRAGMA main.table_info("users")
+[raw sql] ()
+PRAGMA main.table_info("todos")
+[raw sql] ()
+PRAGMA main.table_info("task")
+[raw sql] ()
+PRAGMA main.table_info("conversation")
+[raw sql] ()
+PRAGMA main.table_info("message")
+[raw sql] ()
+COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'run_server.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [4488]
+INFO:     Started server process [3928]
+INFO:     Waiting for application startup.
+BEGIN (implicit)
+PRAGMA main.table_info("users")
+[raw sql] ()
+PRAGMA main.table_info("todos")
+[raw sql] ()
+PRAGMA main.table_info("task")
+[raw sql] ()
+PRAGMA main.table_info("conversation")
+[raw sql] ()
+PRAGMA main.table_info("message")
+[raw sql] ()
+COMMIT
+INFO:     Application startup complete.
