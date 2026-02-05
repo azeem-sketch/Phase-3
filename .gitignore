@@ -1,0 +1,17 @@
+# Node.js / Next.js
+node_modules/
+.next/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+*.sqlite3
+
+# IDE / OS
+.DS_Store
+Thumbs.db
