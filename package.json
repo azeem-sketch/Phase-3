@@ -1,0 +1,9 @@
+{
+    "name": "evolution-of-todo-root",
+    "version": "1.0.0",
+    "description": "Root helper scripts",
+    "scripts": {
+        "dev": "cd evolution-of-todo/frontend-v2 && npm run dev",
+        "backend": "cd evolution-of-todo/backend && venv\\Scripts\\python run_server.py"
+    }
+}

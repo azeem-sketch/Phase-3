@@ -1,0 +1,10 @@
+[project]
+name = "todo_app"
+version = "0.1.0"
+description = "Evolution of Todo - Phase I"
+dependencies = []
+requires-python = ">=3.13"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
