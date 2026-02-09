@@ -10,7 +10,7 @@ from app.core.exceptions import ValidationError, AuthenticationError
 from app.api.deps import get_current_user
 from typing import Any
 
-router = APIRouter(prefix="/api/auth", tags=["Authentication"])
+router = APIRouter(prefix="/auth", tags=["Authentication"])
 
 @router.post("/signup", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 def signup(user_data: UserSignup, session: Session = Depends(get_session)):

@@ -1,0 +1,23 @@
+replicaCount: 1
+
+image:
+  repository: todo-backend
+  pullPolicy: Never # Crucial for Minikube
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 8000
+
+env:
+  ENVIRONMENT: development
+  CORS_ORIGINS: "http://localhost:3000,http://127.0.0.1:3000"
+  DATABASE_URL: "sqlite:///./todo.db" # Using local sqlite for now as per previous phase state
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi

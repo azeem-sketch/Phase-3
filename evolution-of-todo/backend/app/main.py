@@ -24,9 +24,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Register routers
-app.include_router(auth.router)
-app.include_router(tasks.router)
+# Register routers with consistent /api prefix
+app.include_router(auth.router, prefix="/api")
+app.include_router(tasks.router, prefix="/api")
 app.include_router(chat.router, prefix="/api")
 
 @app.on_event("startup")

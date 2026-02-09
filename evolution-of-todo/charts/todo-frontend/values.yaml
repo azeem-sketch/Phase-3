@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  repository: todo-frontend
+  pullPolicy: Never
+  tag: "latest"
+
+service:
+  type: NodePort # Using NodePort for easy access in Minikube
+  port: 3000
+  nodePort: 32000
+
+env:
+  NEXT_PUBLIC_API_URL: "http://localhost:8000" # Initial value, will be updated based on service discovery
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 200m
+    memory: 256Mi

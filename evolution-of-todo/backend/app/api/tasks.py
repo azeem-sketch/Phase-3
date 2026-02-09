@@ -7,7 +7,7 @@ from app.schemas.todo import TodoCreate, TodoUpdate, TodoResponse
 from app.api.deps import get_current_user
 from typing import Any, List
 
-router = APIRouter(prefix="/api/todos", tags=["Tasks"])
+router = APIRouter(prefix="/todos", tags=["Tasks"])
 
 @router.get("", response_model=List[TodoResponse])
 def get_tasks(
